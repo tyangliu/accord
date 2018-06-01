@@ -1,9 +1,10 @@
+require "auto_json"
+
 module Accord
   class ErrorList
+    include AutoJson
 
-    def initialize
-      @errors = Array(Accord::Error).new(5)
-    end
+    field :errors, Array(Accord::Error), default: [] of Accord::Error
 
     def any?
       !@errors.empty?

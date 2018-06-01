@@ -1,9 +1,11 @@
+require "auto_json"
+
 module Accord
   class Error
-    property attr, message
+    include AutoJson
 
-    def initialize(@attr : Symbol, @message : String)
-    end
+    field :attr, Symbol
+    field :message, String
 
     def to_s
       if @attr == :base
